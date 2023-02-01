@@ -1,8 +1,9 @@
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 
+@Suppress("DSL_SCOPE_VIOLATION") // Remove when fixed https://youtrack.jetbrains.com/issue/KTIJ-19369
 plugins {
-    id(GradlePlugin.androidLibrary)
-    id(GradlePlugin.kotlinAndroid)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
@@ -21,7 +22,7 @@ android {
                 gradleLocalProperties(rootDir).getProperty("API_KEY")
             )
         } else {
-            buildConfigField("String","API_KEY", "\"EMPTY\"")
+            buildConfigField("String", "API_KEY", "\"EMPTY\"")
         }
     }
 
@@ -44,12 +45,23 @@ android {
 }
 
 dependencies {
+    api(libs.androidx.core.ktx)
+    api(libs.bundles.androidx.room)
+    api(libs.retrofit)
+    api(libs.okhttp)
+    api(libs.gson)
+    api(libs.hilt)
 
-    implementation(Dependencies.roomKtx)
-    implementation(Dependencies.roomRuntime)
-    implementation(Dependencies.retrofit)
-    implementation(Dependencies.okHttp)
-    implementation(Dependencies.gson)
-    implementation(Dependencies.hilt)
+    // Compose
+    api(platform(libs.androidx.compose.bom))
+    api(libs.androidx.compose.activity)
+    api(libs.androidx.compose.foundation)
+    api(libs.androidx.compose.material3)
+    api(libs.androidx.compose.preview)
+    api(libs.androidx.compose.ui)
+    api(libs.androidx.compose.viewmodel)
 
+    // Firebase
+    implementation(platform(libs.google.firebase.bom))
+    implementation(libs.google.firebase.crashlytics)
 }

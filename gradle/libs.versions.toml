@@ -1,0 +1,49 @@
+[versions]
+androidxActivity = "1.6.1"
+androidxComposeBom = "2022.12.00"
+androidxCore = "1.9.0"
+androidxCoreSplash = "1.0.0"
+androidGradlePlugin = "7.3.1"
+androidxRoom = "2.5.0"
+androidxLifecycle = "2.5.1"
+appCompat = "1.6.0"
+dagger-hilt = "2.44.2"
+firebase = "29.0.0"
+gson = "2.9.0"
+kotlin = "1.7.20"
+okHttp3 = "4.10.0"
+retrofit = "2.9.0"
+
+[libraries]
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidxComposeBom" }
+androidx-compose-activity = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
+androidx-compose-foundation = { module = "androidx.compose.foundation:foundation" }
+androidx-compose-material3 = { module = "androidx.compose.material3:material3" }
+androidx-compose-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+androidx-compose-ui = { module = "androidx.compose.ui:ui" }
+androidx-compose-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
+androidx-core-splash = { module = "androidx.core:core-splashscreen", version.ref = "androidxCoreSplash" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidxLifecycle" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
+androidx-roomRuntime = { module = "androidx.room:room-runtime", version.ref = "androidxRoom" }
+androidx-roomCompiler = { module = "androidx.room:room-compiler", version.ref = "androidxRoom" }
+androidx-roomKtx = { module = "androidx.room:room-compiler", version.ref = "androidxRoom" }
+androidx-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+google-firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase" }
+google-firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics-ktx" }
+gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+hilt = { module = "com.google.dagger:hilt-android", version.ref = "dagger-hilt" }
+hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger-hilt" }
+okhttp = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okHttp3"}
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+
+[bundles]
+androidx-room = ["androidx-roomRuntime", "androidx-roomCompiler", "androidx-roomKtx"]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+hilt-gradle = { id = "com.google.dagger.hilt.android", version.ref = "dagger-hilt" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }

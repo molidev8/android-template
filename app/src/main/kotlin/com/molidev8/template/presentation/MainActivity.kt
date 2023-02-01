@@ -17,17 +17,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        /* To enable ViewBinding
-        * 1. Uncomment this code
-        * 2. Generate an activity_main.xml in res folder
-        * 3. Remove Compose code and buildFeature.compose = true in build.gradle.kts (:app)
-        *
-        * ActivityMainBinding.inflate(layoutInflater)
-        * setContentView(binding.root)
-        *
-        * */
-
         setContent {
             AndroidTemplateTheme {
                 // A surface container using the 'background' color from the theme
