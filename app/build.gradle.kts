@@ -1,8 +1,12 @@
-@Suppress("DSL_SCOPE_VIOLATION") // Remove when fixed https://youtrack.jetbrains.com/issue/KTIJ-19369
+import org.jlleitschuh.gradle.ktlint.KtlintExtension
+
+// Remove when fixed https://youtrack.jetbrains.com/issue/KTIJ-19369
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.ktlint)
 }
 
 android {
@@ -60,8 +64,17 @@ android {
     configurations {
         implementation.get().exclude(mapOf("group" to "org.jetbrains", "module" to "annotations"))
     }
+    sourceSets {
+        getByName("main") {
+            java.srcDirs("src/main/kotlin")
+        }
+    }
 }
 
 dependencies {
     implementation(project(ModuleDependencies.coreModule))
+}
+
+configure<KtlintExtension> {
+    android.set(true)
 }

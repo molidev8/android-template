@@ -47,3 +47,4 @@ android-library = { id = "com.android.library", version.ref = "androidGradlePlug
 hilt-gradle = { id = "com.google.dagger.hilt.android", version.ref = "dagger-hilt" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version = "10.2.0" }

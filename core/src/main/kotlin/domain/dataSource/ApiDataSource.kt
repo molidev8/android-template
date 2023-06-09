@@ -1,4 +1,3 @@
 package domain.dataSource
 
-interface ApiDataSource {
-}
+interface ApiDataSource
