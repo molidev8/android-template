@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo "--------------------------------------"
+echo "Running static analysis with Ktlint"
+echo "--------------------------------------"
+
+CMD="./gradlew ktlintFormat";
+RESULT=$?
+
+# return 1 exit code if Ktlint fails
+$CMD
+RESULT=$?
+if [ $RESULT -ne 0 ]; then
+    echo "--------------------------------------"
+    echo "        --------------------------------------      "
+    echo 1>&2 "Ktlint found violations it could not fix"
+    exit 1
+fi
+echo "Ktlint ran succesfully"
+exit 0
